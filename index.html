@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Site Incrível</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Seção 1: Cabeçalho -->
+<header class="header">
+    <div class="header-container">
+        <div class="logo">
+            <img src="assets/spotify.svg" alt="Logo">
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="#">Premium</a></li>
+                <li><a href="#">Ajuda</a></li>
+                <li><a href="#">Baixar</a></li>
+                <li class="separator">|</li>
+                <li><a href="#">Entrar</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Seção 2: Carrossel com Frases -->
+<section class="carousel-section">
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-item">
+                <h1>Frase 1</h1>
+                <p>Descrição da frase 1.</p>
+            </div>
+            <div class="carousel-item">
+                <h1>Frase 2</h1>
+                <p>Descrição da frase 2.</p>
+            </div>
+            <div class="carousel-item">
+                <h1>Frase 3</h1>
+                <p>Descrição da frase 3.</p>
+            </div>
+            <!-- Adicione mais frases conforme necessário -->
+        </div>
+        <div class="carousel-controls">
+            <button id="prevBtn">&lt;</button>
+            <button id="nextBtn">&gt;</button>
+        </div>
+    </div>
+</section>
+
+<!-- Seção 3: Conteúdo Centralizado -->
+<section class="content-section">
+    <div class="content">
+        <div class="images">
+            <img src="assets/img1.jpg" alt="Imagem 1" onclick="changeText(1)">
+            <img src="assets/img2.jpg" alt="Imagem 2" onclick="changeText(2)">
+            <img src="assets/img3.jpg" alt="Imagem 3" onclick="changeText(3)">
+            <img id="fourth-image" src="assets/img4.jpg" alt="Imagem 4" onclick="showOtherImages()">
+        </div>
+        <div class="text">
+            <h2 id="section-title">Título da Seção 2</h2>
+            <div class="subtitle" id="subtitle1">
+                <h3>Subtítulo 1</h3>
+                <p>Texto explicativo 1.</p>
+            </div>
+            <div class="subtitle" id="subtitle2">
+                <h3>Subtítulo 2</h3>
+                <p>Texto explicativo 2.</p>
+            </div>
+            <div class="subtitle" id="subtitle3">
+                <h3>Subtítulo 3</h3>
+                <p>Texto explicativo 3.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Seção 4: Conteúdo com Imagens Inclinadas -->
+<section class="angled-images-section">
+    <div class="angled-images-content">
+        <h2>Título da Seção 3</h2>
+        <div class="subtitle">
+            <h4>Subtítulo 1</h4>
+            <p>Texto explicativo 1.</p>
+        </div>
+        <div class="subtitle">
+            <h4>Subtítulo 2</h4>
+            <p>Texto explicativo 2.</p>
+        </div>
+        <div class="subtitle">
+            <h4>Subtítulo 3</h4>
+            <p>Texto explicativo 3.</p>
+        </div>
+    </div>
+    <div class="angled-images-images">
+        <img src="assets/iphone1.png" alt="iPhone 1" class="img1">
+        <img src="assets/iphone2.png" alt="iPhone 2" class="img2">
+    </div>
+</section>
+
+<!-- Seção 5: Rodapé -->
+<footer class="footer">
+    <div class="footer-logo">
+        <img src="assets/spotify.svg" alt="Logo">
+    </div>
+    <div class="footer-lists">
+        <div class="footer-list">
+            <h4>COMPANY</h4>
+            <ul>
+                <li>Sobre</li>
+                <li>Empregos</li>
+                <li>Imprensa</li>
+                <li>Novidades</li>
+            </ul>
+        </div>
+        <div class="footer-list">
+            <h4>COMUNIDADES</h4>
+            <ul>
+                <li>Artistas</li>
+                <li>Desenvolvedores</li>
+                <li>Marcas</li>
+            </ul>
+        </div>
+        <div class="footer-list">
+            <h4>LINKS ÚTEIS</h4>
+            <ul>
+                <li>Ajuda</li>
+                <li>Presentes</li>
+                <li>Player na web</li>
+            </ul>
+        </div>
+    </div>
+    <div class="social-icons">
+        <img src="assets/facebook.png" alt="Facebook">
+        <img src="assets/twitter.png" alt="Twitter">
+        <img src="assets/instagram.png" alt="Instagram">
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
