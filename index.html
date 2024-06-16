@@ -1,10 +1,14 @@
 <!DOCTYPE html>
+<!--suppress ALL -->
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seu Site Incrível</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+
 </head>
 <body>
 <!-- Seção 1: Cabeçalho -->
@@ -28,50 +32,55 @@
 <!-- Seção 2: Carrossel com Frases -->
 <section class="carousel-section">
     <div class="carousel-container">
-        <div class="carousel">
-            <div class="carousel-item">
-                <h1>Frase 1</h1>
-                <p>Descrição da frase 1.</p>
+        <!-- Slider main container -->
+        <div class="swiper">
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <h1>As melhores rádios</h1>
+                    <p class="text-button-2">OUÇA AGORA</p>
+                </div>
+                <div class="swiper-slide">
+                    <h1>Música para todos</h1>
+                    <p class="text-button-1">APROVEITE O SPOTIFY FREE</p>
+                    <p class="text-button-2">OBTER SPOTIFY PREMIUM</p></div>
             </div>
-            <div class="carousel-item">
-                <h1>Frase 2</h1>
-                <p>Descrição da frase 2.</p>
-            </div>
-            <div class="carousel-item">
-                <h1>Frase 3</h1>
-                <p>Descrição da frase 3.</p>
-            </div>
-            <!-- Adicione mais frases conforme necessário -->
-        </div>
-        <div class="carousel-controls">
-            <button id="prevBtn">&lt;</button>
-            <button id="nextBtn">&gt;</button>
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
     </div>
 </section>
 
 <!-- Seção 3: Conteúdo Centralizado -->
 <section class="content-section">
-    <div class="content">
+    <div class="content-container">
         <div class="images">
             <img src="assets/img1.jpg" alt="Imagem 1" onclick="changeText(1)">
             <img src="assets/img2.jpg" alt="Imagem 2" onclick="changeText(2)">
             <img src="assets/img3.jpg" alt="Imagem 3" onclick="changeText(3)">
             <img id="fourth-image" src="assets/img4.jpg" alt="Imagem 4" onclick="showOtherImages()">
         </div>
-        <div class="text">
-            <h2 id="section-title">Título da Seção 2</h2>
+        <div class="text-container">
+            <h2 id="section-title"> O que o Spotify tem?
+            </h2>
             <div class="subtitle" id="subtitle1">
-                <h3>Subtítulo 1</h3>
-                <p>Texto explicativo 1.</p>
+                <h3>Músicas</h3>
+                <p>O Spotify tem milhões de músicas. Escute seus sons favoritos,
+                    descubra novas músicas e reúna seus favoritos em um só lugar.</p>
             </div>
             <div class="subtitle" id="subtitle2">
-                <h3>Subtítulo 2</h3>
-                <p>Texto explicativo 2.</p>
+                <h3>Playlists</h3>
+                <p>No Spotify você encontra uma playlist para cada momento.
+                    Todas feitas por fanáticos e especialistas da música.</p>
             </div>
             <div class="subtitle" id="subtitle3">
-                <h3>Subtítulo 3</h3>
-                <p>Texto explicativo 3.</p>
+                <h3> Novos lançamentos</h3>
+                <p>Escute os novos lançamentos de singles e álbuns da semana e
+                    veja o que está bombando no Top 50.</p>
             </div>
         </div>
     </div>
@@ -80,18 +89,23 @@
 <!-- Seção 4: Conteúdo com Imagens Inclinadas -->
 <section class="angled-images-section">
     <div class="angled-images-content">
-        <h2>Título da Seção 3</h2>
-        <div class="subtitle">
-            <h4>Subtítulo 1</h4>
-            <p>Texto explicativo 1.</p>
+        <h2>Fácil</h2>
+        <div class="angle-subtitle">
+            <h4>Buscar</h4>
+            <p>Já sabe o que quer escutar?</p>
+            <p>É só procurar e apertar o play.</p>
         </div>
-        <div class="subtitle">
-            <h4>Subtítulo 2</h4>
-            <p>Texto explicativo 2.</p>
+        <div class="angle-subtitle">
+            <h4>Navegar</h4>
+            <p> Veja os novos lançamentos, o que está
+                bombando nas paradas e as melhores
+                playlists para o seu momento.</p>
         </div>
-        <div class="subtitle">
-            <h4>Subtítulo 3</h4>
-            <p>Texto explicativo 3.</p>
+        <div class="angle-subtitle">
+            <h4>Descobrir</h4>
+            <p>Curta músicas novas toda segunda-feira
+                com uma playlist personalizada pra
+                você. Ou relaxe e curta uma das rádios.</p>
         </div>
     </div>
     <div class="angled-images-images">
@@ -139,6 +153,25 @@
     </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    const swiper = new Swiper('.swiper', {
+        autoplay: {
+            delay: 5000,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets',
+        },
+        speed: 400,
+        spaceBetween: 10,
+        slidesPerView: 1
+    });
+</script>
 <script src="js/script.js"></script>
 </body>
 </html>

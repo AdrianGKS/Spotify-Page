@@ -1,0 +1,106 @@
+/* Estilos para a seção do carrossel */
+.carousel-section {
+    position: relative;
+    color: #fff;
+    text-align: center;
+    padding: 150px 0;
+    background: url('../assets/capa.png') center center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.carousel-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(233, 0, 255, 0.5);
+}
+
+.carousel-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.swiper-slide{
+    width: 100%;
+}
+
+.swiper-slide h1 {
+    font-size: 48px;
+}
+
+.swiper-slide p {
+    display: inline-block;
+    width: 300px;
+    height: 50px;
+    line-height: 50px;
+    margin: 15px;
+    font-weight: 500;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.text-button-1 {
+    background-color: #6f42c1;
+    /*border: 3px solid #6f42c1;*/
+}
+
+.text-button-2 {
+    background-color: transparent;
+    border: 3px solid white;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    color: #ffffff;
+}
+
+.swiper-pagination {
+    position: initial;
+}
+
+@media screen and (max-width: 768px) {
+    .carousel-section {
+        padding: 100px 0;
+    }
+
+    .carousel-section::after {
+        background-color: rgba(233, 0, 255, 0.3);
+    }
+
+    .carousel-container {
+        max-width: 100%;
+    }
+
+    .swiper-slide h1 {
+        font-size: 24px;
+    }
+
+    .swiper-slide p {
+        width: auto;
+        height: auto;
+        line-height: normal;
+        margin: 10px;
+        font-size: 0.8rem;
+    }
+
+    .text-button-1,
+    .text-button-2 {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+        border-radius: 15px;
+    }
+
+    .swiper-button-next, .swiper-button-prev {
+        display: none;
+    }
+}

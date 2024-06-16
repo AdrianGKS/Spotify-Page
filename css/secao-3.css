@@ -1,0 +1,100 @@
+/* Estilos para a seção de imagens inclinadas */
+.angled-images-section {
+    position: relative;
+    color: #fff;
+    text-align: center;
+    padding: 150px 0;
+    background: url('../assets/capa.png') center center;
+    background-size: cover;
+}
+
+.angled-images-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(233, 0, 255, 0.5);
+    z-index: 0;
+}
+
+.angled-images-content {
+    max-width: 900px;
+    margin: 10px 10px 10px 10px;
+    padding-right: 200px;
+    padding-left: 200px;
+    text-align: left;
+    position: relative;
+    z-index: 1;
+}
+
+.angled-images-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.angled-images-images {
+    position: absolute;
+    top: 50%;
+    right: 100px;
+    transform: translateY(-50%) rotate(10deg);
+    z-index: 1;
+}
+
+.angled-images-images img {
+    max-width: 400px;
+    height: auto;
+    margin: 10px 0;
+}
+
+.angle-subtitle {
+    color: aqua;
+    font-size: 1.5rem;
+}
+.angle-subtitle p{
+    color: white;
+
+}
+.image1 {
+    top: 0;
+}
+
+.image2 {
+    top: 50px;
+}
+
+
+@media screen and (max-width: 1024px) {
+
+    .angled-images-content {
+        padding-right: 50px;
+    }
+
+    .angled-images-images img {
+        max-width: 200px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .angled-images-section {
+        padding: 10px 20px 10px 20px;
+    }
+    .angled-images-content {
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .angled-images-images {
+        position: static;
+    }
+
+    .angled-images-images img {
+        max-width: 150px;
+    }
+
+    .image2 {
+        left: 10px;
+        top: 0;
+    }
+}

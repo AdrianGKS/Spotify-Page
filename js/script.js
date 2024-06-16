@@ -1,74 +1,3 @@
-// JavaScript para controle do carrossel
-const carouselItems = document.querySelectorAll('.carousel .carousel-item');
-let currentItem = 0;
-const totalItems = carouselItems.length;
-let autoplayInterval;
-
-// Função para mostrar o item atual do carrossel
-function showCarouselItem(index) {
-    // Certifique-se de que o índice esteja dentro dos limites
-    if (index < 0) {
-        index = totalItems - 1;
-    } else if (index >= totalItems) {
-        index = 0;
-    }
-
-    // Oculta todos os itens do carrossel
-    carouselItems.forEach(item => {
-        item.classList.remove('active', 'next', 'exit');
-    });
-
-    // Define classes para os itens ativo, próximo e saindo
-    carouselItems[index].classList.add('active');
-    if (index === totalItems - 1) {
-        carouselItems[0].classList.add('next');
-    } else {
-        carouselItems[index + 1].classList.add('next');
-    }
-    carouselItems[index].classList.add('exit');
-
-    // Atualiza o índice do item atual
-    currentItem = index;
-}
-
-// Função para avançar para o próximo item
-function nextCarouselItem() {
-    showCarouselItem(currentItem + 1);
-}
-
-// Função para voltar para o item anterior
-function prevCarouselItem() {
-    showCarouselItem(currentItem - 1);
-}
-
-// Função para iniciar o autoplay
-function startAutoplay() {
-    autoplayInterval = setInterval(nextCarouselItem, 5000); // Avança a cada 5 segundos (5000 milissegundos)
-}
-
-// Função para parar o autoplay
-function stopAutoplay() {
-    clearInterval(autoplayInterval);
-}
-
-// Event listeners para os botões de controle do carrossel
-document.getElementById('nextBtn').addEventListener('click', () => {
-    stopAutoplay();
-    nextCarouselItem();
-});
-
-document.getElementById('prevBtn').addEventListener('click', () => {
-    stopAutoplay();
-    prevCarouselItem();
-});
-
-// Inicia o autoplay ao carregar a página
-startAutoplay();
-
-// Mostra o primeiro item inicialmente
-showCarouselItem(currentItem);
-
-// Array de imagens adicionais que serão exibidas ao clicar na quarta imagem
 const additionalImages = [
     { src: '../assets/1.jpeg', alt: 'Imagem 5' },
     { src: '../assets/2.jpeg', alt: 'Imagem 6' },
@@ -76,10 +5,10 @@ const additionalImages = [
     { src: '../assets/4.jpeg', alt: 'Imagem 8' }
 ];
 
-// Função para remover as imagens adicionais e mostrar os textos
+// Remove imagens adicionais e mostra os textos
 function hideAdditionalImagesAndShowText() {
     const imagesContainer = document.querySelector('.images');
-    const textElements = document.querySelectorAll('.text'); // Seleciona todos os elementos de texto
+    const textElements = document.querySelectorAll('.text-container'); // Seleciona todos os elementos de texto
 
     // Remover as imagens adicionais
     additionalImages.forEach(image => {
@@ -93,66 +22,72 @@ function hideAdditionalImagesAndShowText() {
     textElements.forEach(element => {
         element.style.display = '';
     });
+
+    imagesContainer.classList.remove('expanded');
+
 }
 
-// Função para mudar os textos ao clicar nas imagens
+// Muda os textos ao clicar nas imagens
 function changeText(imageNumber) {
     const sectionTitle = document.getElementById('section-title');
     const subtitle1 = document.getElementById('subtitle1');
     const subtitle2 = document.getElementById('subtitle2');
     const subtitle3 = document.getElementById('subtitle3');
-    const textElements = document.querySelectorAll('.text'); // Seleciona todos os elementos de texto
 
-    // Verifica se as imagens adicionais estão sendo exibidas
     const additionalImagesDisplayed = additionalImages.some(image => {
         return document.querySelector(`img[src="${image.src}"]`);
     });
 
-    // Se as imagens adicionais estiverem sendo exibidas e uma das quatro primeiras imagens for clicada, ocultar as imagens adicionais e mostrar os textos
+
     if (additionalImagesDisplayed && imageNumber <= 4) {
         hideAdditionalImagesAndShowText();
-        additionalImagesShown = false; // Redefine o estado para permitir que as imagens adicionais sejam mostradas novamente
+        additionalImagesShown = false;
     } else {
-        // Lógica para atualizar os textos conforme o número da imagem
         switch (imageNumber) {
             case 1:
-                sectionTitle.textContent = 'Título da Seção 2 - Imagem 1';
-                subtitle1.innerHTML = '<h3>Subtítulo 1 - Imagem 1</h3><p>Texto explicativo 1 - Imagem 1.</p>';
-                subtitle2.innerHTML = '<h3>Subtítulo 2 - Imagem 1</h3><p>Texto explicativo 2 - Imagem 1.</p>';
-                subtitle3.innerHTML = '<h3>Subtítulo 3 - Imagem 1</h3><p>Texto explicativo 3 - Imagem 1.</p>';
+                sectionTitle.textContent = 'O que o Spotify tem?';
+                subtitle1.innerHTML = '<h3>Músicas</h3>' +
+                    '<p>O Spotify tem milhões de músicas. Escute seus sons favoritos, descubra novas músicas e reúna seus favoritos em um só lugar.\n' +
+                    '\n</p>';
+                subtitle2.innerHTML = '<h3>Playlists</h3><p>No Spotify você encontra uma playlist para cada momento. Todas feitas por fanáticos e especialistas da música.</p>';
+                subtitle3.innerHTML = '<h3>Novos lançamentos</h3><p>Escute os novos lançamentos de singles e álbuns da semana e veja o que está bombando no Top 50.</p>';
+                sectionTitle.classList.remove('move-left'); // Remove a classe se estiver presente
+                sectionTitle.classList.remove('centered-title'); // Remove a classe se estiver presente
                 break;
             case 2:
-                sectionTitle.textContent = 'Título da Seção 2 - Imagem 2';
-                subtitle1.innerHTML = '<h3>Subtítulo 1 - Imagem 2</h3><p>Texto explicativo 1 - Imagem 2.</p>';
-                subtitle2.innerHTML = '<h3>Subtítulo 2 - Imagem 2</h3><p>Texto explicativo 2 - Imagem 2.</p>';
-                subtitle3.innerHTML = '<h3>Subtítulo 3 - Imagem 2</h3><p>Texto explicativo 3 - Imagem 2.</p>';
+                subtitle2.innerHTML = ''; // Limpa o conteúdo do subtitle2
+                subtitle3.innerHTML = ''; // Limpa o conteúdo do subtitle3
+                sectionTitle.textContent = 'Título da Seção 2';
+                subtitle1.innerHTML = '<h3 class="image-text-2">Subtítulo</h3><p class="image-text-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>';
+                sectionTitle.classList.remove('move-left'); // Remove a classe se estiver presente
+                sectionTitle.classList.add('centered-title');
                 break;
             case 3:
-                sectionTitle.textContent = 'Título da Seção 2 - Imagem 3';
-                subtitle1.innerHTML = '<h3>Subtítulo 1 - Imagem 3</h3><p>Texto explicativo 1 - Imagem 3.</p>';
-                subtitle2.innerHTML = '<h3>Subtítulo 2 - Imagem 3</h3><p>Texto explicativo 2 - Imagem 3.</p>';
-                subtitle3.innerHTML = '<h3>Subtítulo 3 - Imagem 3</h3><p>Texto explicativo 3 - Imagem 3.</p>';
+                sectionTitle.classList.add('move-left'); // Adiciona a classe move-left para iniciar a animação
+                sectionTitle.textContent = 'Título da Seção 2';
+                subtitle1.innerHTML = '<h3>Subtítulo 1</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas..</p>';
+                subtitle2.innerHTML = '<h3 class="move-left">Subtítulo 2</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>';
+                subtitle3.innerHTML = '<h3>Subtítulo 3</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>';
+                sectionTitle.classList.remove('centered-title'); // Remove a classe se estiver presente
                 break;
             case 4:
-                // Caso a quarta imagem seja clicada, mostrar outras imagens ao lado
                 showOtherImages();
                 break;
         }
     }
 }
 
-let additionalImagesShown = false; // Estado para rastrear se as imagens adicionais foram mostradas
+let additionalImagesShown = false;
 
-// Função para mostrar outras imagens ao lado ao clicar na quarta imagem
+//Mostra as outras imagens quando quarta for clicada
 function showOtherImages() {
     if (additionalImagesShown) {
-        return; // Se as imagens adicionais já foram mostradas, não faça nada
+        return;
     }
 
     const imagesContainer = document.querySelector('.images');
-    const textElements = document.querySelectorAll('.text'); // Seleciona todos os elementos de texto que deseja ocultar
+    const textElements = document.querySelectorAll('.text-container');
 
-    // Adicionar as novas imagens ao container existente
     additionalImages.forEach(image => {
         const imgElement = document.createElement('img');
         imgElement.src = image.src;
@@ -160,12 +95,10 @@ function showOtherImages() {
         imagesContainer.appendChild(imgElement);
     });
 
-    // Ocultar os elementos de texto
     textElements.forEach(element => {
         element.style.display = 'none';
     });
-// Ajustar a classe do container de imagens para expandir a grade
     imagesContainer.classList.add('expanded');
-    additionalImagesShown = true; // Atualiza o estado para refletir que as imagens adicionais foram mostradas
+    additionalImagesShown = true;
 }
 

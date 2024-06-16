@@ -1,0 +1,89 @@
+/* Estilos para o rodapé */
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-wrap: wrap;
+    background-color: #000;
+    color: #fff;
+    padding: 50px 200px;
+    text-align: center;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.footer-logo img {
+    max-width: 200px;
+    margin-right: 100px;
+}
+.footer-lists {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+    margin: 20px auto;
+}
+
+.footer-list {
+    padding: 10px 10px 10px 10px;
+    flex: 1 0 33%;
+    margin-left: 50px;
+    text-align: left;
+}
+
+.footer-list:not(:last-child) {
+    margin-right: 40px;
+}
+
+.footer-list h4 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.footer-list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-list li {
+    margin-bottom: 5px;
+}
+
+.social-icons {
+    margin-left: 100px;
+}
+
+.social-icons img {
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .footer {
+       align-items: center;
+        padding: 20px;
+    }
+    .footer-logo img {
+        max-width: 150px;
+        margin-right: 100px;
+    }
+    .footer-lists {
+        display: block;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-list:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    .social-icons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        margin-right: 200px;
+    }
+}
